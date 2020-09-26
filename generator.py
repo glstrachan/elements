@@ -12,22 +12,31 @@ def get_name():
     red, green, blue = 0, 0, 0
 
     for x in file:
-        if count == 2 or count == 10 or count == 18 or count == 36 or count == 54 or count == 86 or count == 118:
-            red, green, blue = 253, 169, 133
-        elif count == 4 or count == 12 or count == 20 or count == 38 or count == 56 or count == 88:
-            red, green, blue = 117, 137, 191
-        elif 20 < count and count < 31 or 38 < count and count < 49 or 71 < count and count < 81 or 103 < count and count < 113:
-            red, green, blue = 111, 183, 214
-        elif count == 5 or 12 < count and count < 15 or 30 < count and count < 34 or 48 < count and count < 53 or 80 < count and count < 85 or 112 < count and count < 117:
-            red, green, blue = 145, 210, 144
-        elif count == 1 or 5 < count and count < 10 or 14 < count and count < 18 or 33 < count and count < 36 or count == 53 or count == 85 or count == 117:
-            red, green, blue = 255, 250, 129
-        elif 56 < count and count < 72:
-            red, green, blue = 204, 236, 239
-        elif 88 < count and count < 104:
-            red, green, blue = 207, 236, 207
+        x = x.rstrip()
+        colour = x[len(x) - 2:len(x)]
 
-        new_image(count, x.rstrip(), red, green, blue)
+        if colour == "YE":
+            red, green, blue = 240, 255, 143
+        elif colour == "BL":
+            red, green, blue = 192, 255, 255
+        elif colour == "RE":
+            red, green, blue = 255, 157, 157
+        elif colour == "OR":
+            red, green, blue = 255, 222, 173
+        elif colour == "GR":
+            red, green, blue = 204, 204, 153
+        elif colour == "DB":
+            red, green, blue = 204, 204, 204
+        elif colour == "LR":
+            red, green, blue = 255, 192, 192
+        elif colour == "PU":
+            red, green, blue = 255, 191, 255
+        elif colour == "MA":
+            red, green, blue = 255, 153, 204
+        elif colour == "GE":
+            red, green, blue = 232, 232, 232
+
+        new_image(count, x[0:len(x) - 2], red, green, blue)
         count += 1;
     file.close()
 
